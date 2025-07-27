@@ -52,7 +52,7 @@ public class VentanaGrafial extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 0, 0));
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Agregar nodo: ");
+        jLabel3.setText("Agregar arista: ");
 
         jTextField2.setText("a,b");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -62,14 +62,14 @@ public class VentanaGrafial extends javax.swing.JFrame {
         });
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Peso del nodo:");
+        jLabel4.setText("Peso de la arista:");
 
         jTextField3.setText("1");
 
         jButton2.setBackground(new java.awt.Color(255, 255, 0));
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("Agregar Nodo");
-        jButton2.setActionCommand("AgregarNodo");
+        jButton2.setText("Agregar Arista");
+        jButton2.setActionCommand("AgregarArista");
 
         jButton3.setBackground(new java.awt.Color(255, 255, 0));
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
@@ -90,14 +90,13 @@ public class VentanaGrafial extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
         jTextArea1.setRows(5);
-        jTextArea1.setText("Notificacion: Los vertices son nombrados en orden alfabetico\nEs decir\nSi hay 5 vertices, V sería {a,b,c,d,e}\nNo ponga ni corchetes ni partentesis en la seccion de agregar nodo");
+        jTextArea1.setText("Notificacion: Los vertices son nombrados en orden alfabetico\nEs decir\nSi hay 5 vertices, V sería {a,b,c,d,e}\nNo ponga ni corchetes ni partentesis en la seccion de agregar arista");
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,6 +118,9 @@ public class VentanaGrafial extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton2)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,7 +156,7 @@ public class VentanaGrafial extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 6, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))

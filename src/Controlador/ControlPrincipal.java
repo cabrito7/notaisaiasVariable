@@ -94,6 +94,17 @@ public class ControlPrincipal {
             char[] aristaAComparar = this.cGrafo.getGrafo().getAristas().get(i);
             matrizDeAdyacencia[buscarEnElAbecedario(aristaAComparar[0])][buscarEnElAbecedario(aristaAComparar[1])] = this.cGrafo.getGrafo().getPesosDeLosNodos().get(i);
         }
+        for (int i = 0; i < matrizDeAdyacencia.length; i++) {
+            String fila = "[";
+            for (int j = 0; j < matrizDeAdyacencia[i].length; j++) {
+                fila += matrizDeAdyacencia[i][j];
+                if (j < matrizDeAdyacencia[i].length - 1) {
+                    fila += ", ";
+                }
+            }
+            fila += "]";
+            System.out.println(fila);
+        }
 
     }
 

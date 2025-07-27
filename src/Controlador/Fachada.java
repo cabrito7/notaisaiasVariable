@@ -51,7 +51,7 @@ public class Fachada implements ActionListener {
             this.vPrincipal.getvGrafial().setVisible(false);
             System.exit(0);
         }
-        if("AgregarNodo".equals(e.getActionCommand())) {
+        if("AgregarArista".equals(e.getActionCommand())) {
             this.cPrincipal.agregarArista(this.vPrincipal.getvGrafial().jTextField2.getText(), this.vPrincipal.getvGrafial().jTextField3.getText(), this.vPrincipal.jCheckBox1.isSelected());
         }
         if("EmpezarSimulacion".equals(e.getActionCommand())) {
