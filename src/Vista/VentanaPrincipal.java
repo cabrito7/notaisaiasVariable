@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  * @author carlosmamut1
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-    public VentanaGrafial vGrafial;
+    private VentanaGrafial vGrafial;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName());
 
     /**
@@ -24,6 +24,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public void mostrarMensajeError(String msj) {
         JOptionPane.showMessageDialog(this, msj, "Error", JOptionPane.ERROR_MESSAGE);
     }
+    public void mostrarMensaje(String msj) {
+        JOptionPane.showMessageDialog(this, msj, "Info", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public VentanaGrafial getvGrafial() {
+        return vGrafial;
+    }
+
+    public void setvGrafial(VentanaGrafial vGrafial) {
+        this.vGrafial = vGrafial;
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -171,7 +184,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
+    public javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
