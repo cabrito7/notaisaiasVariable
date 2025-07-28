@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
     private VentanaGrafial vGrafial;
+    private VentanaResultados vResultados;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName());
 
     /**
@@ -20,6 +21,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public VentanaPrincipal() {
         initComponents();
         this.vGrafial = new VentanaGrafial();
+        this.vResultados = new VentanaResultados();
     }
     public void mostrarMensajeError(String msj) {
         JOptionPane.showMessageDialog(this, msj, "Error", JOptionPane.ERROR_MESSAGE);
@@ -28,6 +30,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, msj, "Info", JOptionPane.INFORMATION_MESSAGE);
     }
 
+    public VentanaResultados getvResultados() {
+        return vResultados;
+    }
+
+    public void setvResultados(VentanaResultados vResultados) {
+        this.vResultados = vResultados;
+    }
+    
+    
+
     public VentanaGrafial getvGrafial() {
         return vGrafial;
     }
@@ -35,7 +47,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public void setvGrafial(VentanaGrafial vGrafial) {
         this.vGrafial = vGrafial;
     }
-    
     
     /**
      * This method is called from within the constructor to initialize the form.

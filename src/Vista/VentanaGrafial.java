@@ -4,14 +4,12 @@
  */
 package Vista;
 
-import javax.swing.JFrame;
 
 /**
  *
  * @author carlosmamut1
  */
 public class VentanaGrafial extends javax.swing.JFrame {
-    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaGrafial.class.getName());
 
     /**

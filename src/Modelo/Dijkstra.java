@@ -9,7 +9,6 @@ public class Dijkstra {
         int[] distances = new int[numNodes];
         boolean[] visited = new boolean[numNodes];
 
-        // Inicializar distancias
         for (int i = 0; i < numNodes; i++) {
             distances[i] = INFINITY;
             visited[i] = false;

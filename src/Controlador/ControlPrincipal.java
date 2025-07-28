@@ -18,6 +18,7 @@ public class ControlPrincipal {
     private char[] verticesDelGrafo;
     private ArrayList<char[]> aristasDelGrafo;
     private ArrayList<Integer> pesosDeLasAristas;
+    private static final int INFINITY = Integer.MAX_VALUE;
 
     public ControlPrincipal() {
         this.fachada = new Fachada(this);
@@ -88,24 +89,61 @@ public class ControlPrincipal {
         return -1;
     }
 
-    public void crearMatrizDeAdyacencia() {
+    public int[][] crearMatrizDeAdyacencia() {
         int[][] matrizDeAdyacencia = new int[this.cGrafo.getGrafo().getVertices().length][this.cGrafo.getGrafo().getVertices().length];
         for (int i = 0; i < this.cGrafo.getGrafo().getAristas().size(); i++) {
             char[] aristaAComparar = this.cGrafo.getGrafo().getAristas().get(i);
             matrizDeAdyacencia[buscarEnElAbecedario(aristaAComparar[0])][buscarEnElAbecedario(aristaAComparar[1])] = this.cGrafo.getGrafo().getPesosDeLosNodos().get(i);
         }
-        for (int i = 0; i < matrizDeAdyacencia.length; i++) {
-            String fila = "[";
-            for (int j = 0; j < matrizDeAdyacencia[i].length; j++) {
-                fila += matrizDeAdyacencia[i][j];
-                if (j < matrizDeAdyacencia[i].length - 1) {
-                    fila += ", ";
+        return matrizDeAdyacencia;
+    }
+    
+    public String dijkstra(String verticeInicial, int[][] matrizDeAdyacencia) {
+        if(encontrarVertice(verticeInicial.charAt(0)) && verticeInicial.length() == 1) {
+            int numNodes = matrizDeAdyacencia.length;
+            int[] distances = new int[numNodes];
+            boolean[] visited = new boolean[numNodes];
+
+            for (int i = 0; i < numNodes; i++) {
+                distances[i] = INFINITY;
+                visited[i] = false;
+            }
+            distances[buscarEnElAbecedario(verticeInicial.charAt(0))] = 0;
+            for (int i = 0; i < numNodes - 1; i++) {
+                int minDistanceNode = findMinDistanceNode(distances, visited);
+                visited[minDistanceNode] = true;
+
+                for (int j = 0; j < numNodes; j++) {
+                    if (!visited[j] && matrizDeAdyacencia[minDistanceNode][j] != 0
+                            && distances[minDistanceNode] != INFINITY
+                            && distances[minDistanceNode] + matrizDeAdyacencia[minDistanceNode][j] < distances[j]) {
+                        distances[j] = distances[minDistanceNode] + matrizDeAdyacencia[minDistanceNode][j];
+                    }
                 }
             }
-            fila += "]";
-            System.out.println(fila);
+            String text ="";
+            for (int i = 0; i < numNodes; i++) {
+            if (distances[i] == INFINITY) {
+                text+=("Hasta el nodo " + i + ": ∞ (inaccesible)<br>");
+            } else {
+                text+=("Hasta el nodo " + i + ": " + distances[i] + "<br>");
+            }
         }
+            return text;
+        }
+        return null;
+    }
+     public static int findMinDistanceNode(int[] distances, boolean[] visited) {
+        int minDistance = INFINITY;
+        int minDistanceNode = -1;
 
+        for (int i = 0; i < distances.length; i++) {
+            if (!visited[i] && distances[i] <= minDistance) {
+                minDistance = distances[i];
+                minDistanceNode = i;
+            }
+        }
+        return minDistanceNode;
     }
 
     public int encontrarArista(String texto) {

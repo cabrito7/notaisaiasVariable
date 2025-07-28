@@ -16,6 +16,7 @@ public class Fachada implements ActionListener {
     private ControlPrincipal cPrincipal;
     private VentanaPrincipal vPrincipal;
     
+    
     public Fachada(ControlPrincipal cPrincipal) {
         this.cPrincipal = cPrincipal;
         this.vPrincipal = new VentanaPrincipal();
@@ -24,6 +25,7 @@ public class Fachada implements ActionListener {
         this.vPrincipal.getvGrafial().jButton2.addActionListener(this);
         this.vPrincipal.getvGrafial().jButton3.addActionListener(this);
         this.vPrincipal.getvGrafial().jButton4.addActionListener(this);
+        this.vPrincipal.getvResultados().jButton1.addActionListener(this);
         
     }
 
@@ -56,7 +58,12 @@ public class Fachada implements ActionListener {
         }
         if("EmpezarSimulacion".equals(e.getActionCommand())) {
             this.cPrincipal.crearGrafoEnControlPrincipal(this.vPrincipal.jCheckBox1.isSelected());
-            this.cPrincipal.crearMatrizDeAdyacencia();
+            this.vPrincipal.getvResultados().setVisible(true);
+        }
+        if("EnviarResultados".equals(e.getActionCommand())) {
+
+            String texto = this.cPrincipal.dijkstra(this.vPrincipal.getvResultados().jTextField1.getText(), this.cPrincipal.crearMatrizDeAdyacencia());
+            this.vPrincipal.getvResultados().jLabel3.setText(texto);
         }
     }
 }
