@@ -97,6 +97,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         jCheckBox1.setBackground(new java.awt.Color(255, 51, 51));
+        jCheckBox1.setSelected(true);
         jCheckBox1.setText("Dirigido");
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
