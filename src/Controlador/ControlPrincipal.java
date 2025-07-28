@@ -28,7 +28,7 @@ public class ControlPrincipal {
         this.aristasDelGrafo = new ArrayList<>();
         this.pesosDeLasAristas = new ArrayList<>();
     }
-    
+
     public void crearGrafoEnControlPrincipal(boolean dirigido) {
         this.cGrafo.crearGrafo(verticesDelGrafo, aristasDelGrafo, pesosDeLasAristas, dirigido);
     }
@@ -68,8 +68,7 @@ public class ControlPrincipal {
                         pesosDeLasAristas.add(Integer.parseInt(pesoDeLaArista));
                         this.fachada.getvPrincipal().mostrarMensaje("La arista fue creada exitosamente");
                     }
-                }
-                else {
+                } else {
                     this.fachada.getvPrincipal().mostrarMensajeError("El peso que pusiste tiene que ser mayor a 0");
                 }
             } else {
@@ -97,9 +96,9 @@ public class ControlPrincipal {
         }
         return matrizDeAdyacencia;
     }
-    
+
     public String dijkstra(String verticeInicial, int[][] matrizDeAdyacencia) {
-        if(encontrarVertice(verticeInicial.charAt(0)) && verticeInicial.length() == 1) {
+        if (encontrarVertice(verticeInicial.charAt(0)) && verticeInicial.length() == 1) {
             int numNodes = matrizDeAdyacencia.length;
             int[] distances = new int[numNodes];
             boolean[] visited = new boolean[numNodes];
@@ -121,19 +120,21 @@ public class ControlPrincipal {
                     }
                 }
             }
-            String text ="";
+            String text = "<html>";
             for (int i = 0; i < numNodes; i++) {
-            if (distances[i] == INFINITY) {
-                text+=("Hasta el nodo " + i + ": ∞ (inaccesible)<br>");
-            } else {
-                text+=("Hasta el nodo " + i + ": " + distances[i] + "<br>");
+                if (distances[i] == INFINITY) {
+                    text += "Hasta el nodo " + this.cGrafo.getGrafo().getVertices()[i] + ": ∞ (inaccesible)<br>";
+                } else {
+                    text += "Hasta el nodo " + this.cGrafo.getGrafo().getVertices()[i] + ": " + distances[i] + "<br>";
+                }
             }
-        }
+            text += "</html>";
             return text;
         }
         return null;
     }
-     public static int findMinDistanceNode(int[] distances, boolean[] visited) {
+
+    public static int findMinDistanceNode(int[] distances, boolean[] visited) {
         int minDistance = INFINITY;
         int minDistanceNode = -1;
 
