@@ -120,7 +120,7 @@ public class ControlPrincipal {
                     }
                 }
             }
-            String text = "<html>";
+            String text = "<html><h3>Resultados del Algoritmo de Dijkstra:</h3>";
             for (int i = 0; i < numNodes; i++) {
                 if (distances[i] == INFINITY) {
                     text += "Hasta el nodo " + this.cGrafo.getGrafo().getVertices()[i] + ": ∞ (inaccesible)<br>";
@@ -131,7 +131,7 @@ public class ControlPrincipal {
             text += "</html>";
             return text;
         }
-        return null;
+        return "<html>Error: Vértice inicial no válido</html>";
     }
 
     public static int findMinDistanceNode(int[] distances, boolean[] visited) {
